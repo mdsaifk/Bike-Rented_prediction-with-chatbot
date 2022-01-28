@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>BIKE</title>
+    <link href="../static/temp.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../static/Zomato.js" type="text/javascript"></script>
+    <link href="../static/Zomato.css" rel="stylesheet" type="text/css">
+    <link href="../static/style.css" rel="stylesheet" type="text/css">
+
+    <style>
+        option:hover {
+          background-color: rgb(236, 90, 139);
+        }
+
+    </style>
+
+</head>
+<body>
+<nav>
+    <div class="logo">
+        Pridiction of Rented bike is 
+    </div>
+    <input id="click" type="checkbox">
+    <label class="menu-btn" for="click">
+        <i class="fas fa-bars"></i>
+    </label>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="https://github.com/mdsaifk/mdsaifk-Bike_sharing_app1">Github</a></li>
+        <li><a href="https://www.linkedin.com/in/saif-khan-3814171a8/">Linkedin</a></li>
+    </ul>
+</nav>
+
+<!--<img src="{{ url_for('static', filename='images/zomato_cook.jpg') }}" style="width:200px;height:200px;/>-->
+
+<form action="/pred" method="POST">
+<br/><br/>
+<!--    <marquee class="title">Restaurant Rating Prediction</marquee>-->
+
+<br/><br/>
+<table class="tab">
+
+    <tbody>
+    <tr>
+        <td>Season</td>
+        <td>
+            <input type="number" name="season" id="season" placeholder="Season" required>
+                
+                <!-- <option value="1">Ludhiana</option>
+                <option value="2">Amritsar</option> -->
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Holiday</td>
+        <td>
+            <input type="number" name="holiday" id="holiday" placeholder="Holiday" required>
+                
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>workingday</td>
+        <td>
+            <input type="number" name="workingday" id="workingday" placeholder="Working" required>
+                
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Weather</td>
+        <td>
+            <input type="number" name="weather" id="weather" placeholder="Weather" required>
+                
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Temperature</td>
+        <td>
+            <input type="number" name="temp" id="temp" placeholder="Temperature" required>
+                
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Atmospheric_Temp</td>
+        <td>
+            <input type="number" name="atemp" id="atemp" placeholder="Atmospheric Temperature" step="any" required>
+                
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Humidity</td>
+        <td>
+            <input type="number" name="humidity" id="humidity" placeholder="Humidity" required>
+                
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Windspeed</td>
+        <td>
+            <input type="number" name="windspeed" id="windspeed" placeholder="Windspeed" required>
+                
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Casual</td>
+        <td>
+            <input type="number" name="casual" id="casual" placeholder="Casual" required>
+                
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Registered</td>
+        <td>
+            <input type="number" name="registered" id="registered" placeholder="Registered" required>
+                
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Hours</td>
+        <td>
+            <input type="number" name="hour" id="hour" placeholder="Hours" required>
+                
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Research</td>
+        <td>
+            <select name="research" id="research" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option> 
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="tdB" colspan="2"><input class="button" id="chk" type="Submit" value="Predict"></td>
+    </tr>
+    </tbody>
+
+
+</form>
+</form>
+
+<div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img alt="image" src="{{ url_for('static', filename='images/saif.jpg') }}"> 
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Welcome to BikeBot!</h4>
+                    <p class="chatbox__description--header">Hi. My name is Saif. <br></p>
+                    <p class="chatbox__description--header">How can I help you?</p>
+
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input placeholder="Write a message..." type="text">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="{{ url_for('static', filename='images/chatbox-icon (1).png') }}"/></button>
+        </div>
+    </div>
+</div>
+<script>
+        $SCRIPT_ROOT = {{request.script_root|tojson}};
+
+</script>
+<script src="{{ url_for('static', filename='app.js') }}" type="text/javascript">
+</script>
+
+
+<br/><br/>
+<table class="tab">
+    <tbody>
+    <tr>
+        <!-- <td>Predicted Rating is:</td> -->
+        <td>Number of Rented bike is: {{prediction}}</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
